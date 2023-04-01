@@ -9,10 +9,11 @@ public class Or extends Symbol {
     private final boolean[] values;
 
     public Or(boolean a, boolean b) {
-        values = new boolean[]{a, b};
+        this(new boolean[]{a, b});
     }
 
     public Or(boolean... values) {
+        super("\u2228");
         this.values = values;
     }
 
@@ -36,17 +37,12 @@ public class Or extends Symbol {
     }
 
     @Override
-    public String symbol() {
-        return "\u2228";
-    }
-
-    @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < values.length; i++) {
             result.append(values[i]).append(" ");
             if (i != values.length - 1)
-                result.append(symbol()).append(" ");
+                result.append(SYMBOL).append(" ");
         }
         return result.toString();
     }

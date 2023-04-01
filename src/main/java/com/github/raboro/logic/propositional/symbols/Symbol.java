@@ -6,7 +6,11 @@ package com.github.raboro.logic.propositional.symbols;
  */
 public abstract class Symbol {
 
-    public abstract boolean value();
+    public final String SYMBOL;
 
-    public abstract String symbol();
+    Symbol(String symbol) {
+        SYMBOL = symbol;
+    }
+
+    public abstract boolean value();
 }
