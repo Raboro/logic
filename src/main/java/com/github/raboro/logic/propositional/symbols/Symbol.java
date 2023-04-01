@@ -7,10 +7,12 @@ package com.github.raboro.logic.propositional.symbols;
 public abstract class Symbol {
 
     public final String SYMBOL;
+    public final int LENGTH;
     private final boolean[] values;
 
     Symbol(String symbol, boolean... values) {
         SYMBOL = symbol;
+        LENGTH = values.length;
         this.values = values;
     }
 
