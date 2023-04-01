@@ -3,14 +3,18 @@ package com.github.raboro.logic.propositional.symbols;
 import org.junit.jupiter.api.Test;
 
 import static com.github.raboro.logic.propositional.symbols.Or.or;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Raboro
  * @since 1.0-SNAPSHOT
  */
 class OrTest {
+
+    @Test
+    void testSymbol() {
+        assertEquals("\u2228", new Or(true, true).SYMBOL);
+    }
 
     @Test
     void testStaticOrTwoValues() {

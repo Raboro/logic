@@ -4,14 +4,18 @@ package com.github.raboro.logic.propositional.symbols;
 import org.junit.jupiter.api.Test;
 
 import static com.github.raboro.logic.propositional.symbols.And.and;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Raboro
  * @since 1.0-SNAPSHOT
  */
 class AndTest {
+
+    @Test
+    void testSymbol() {
+        assertEquals("\u2227", new And(true, true).SYMBOL);
+    }
 
     @Test
     void testStaticAndTwoInputs() {
