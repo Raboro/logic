@@ -4,9 +4,9 @@ package com.github.raboro.logic.propositional.symbols;
  * @author Raboro
  * @since 1.0-SNAPSHOT
  */
-public interface Symbol {
+public abstract class Symbol {
 
-    boolean value();
+    public abstract boolean value();
 
-    String symbol();
+    public abstract String symbol();
 }

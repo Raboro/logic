@@ -4,7 +4,7 @@ package com.github.raboro.logic.propositional.symbols;
  * @author Raboro
  * @since 1.0-SNAPSHOT
  */
-public class Or implements Symbol {
+public class Or extends Symbol {
 
     private final boolean[] values;
 
