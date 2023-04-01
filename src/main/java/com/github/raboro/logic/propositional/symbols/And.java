@@ -13,7 +13,7 @@ public class And extends Symbol {
     }
 
     public And(boolean... values) {
-        super("\u2227");
+        super("\u2227", values);
         this.values = values;
     }
 
@@ -34,16 +34,5 @@ public class And extends Symbol {
         for (int i = 1; i < values.length; i++)
             result = and(result, values[i]);
         return result;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < values.length; i++) {
-            result.append(values[i]).append(" ");
-            if (i != values.length - 1)
-                result.append(SYMBOL).append(" ");
-        }
-        return result.toString();
     }
 }

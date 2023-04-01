@@ -13,7 +13,7 @@ public class Or extends Symbol {
     }
 
     public Or(boolean... values) {
-        super("\u2228");
+        super("\u2228", values);
         this.values = values;
     }
 
@@ -34,16 +34,5 @@ public class Or extends Symbol {
             if (value)
                 return true;
         return false;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < values.length; i++) {
-            result.append(values[i]).append(" ");
-            if (i != values.length - 1)
-                result.append(SYMBOL).append(" ");
-        }
-        return result.toString();
     }
 }
