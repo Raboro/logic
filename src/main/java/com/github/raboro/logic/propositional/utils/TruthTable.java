@@ -53,4 +53,10 @@ public class TruthTable {
         }
         return binaryNumber.toString();
     }
+
+    public void print() {
+        System.out.println(header);
+        System.out.println(spaceRow);
+        rows.forEach(System.out::println);
+    }
 }
