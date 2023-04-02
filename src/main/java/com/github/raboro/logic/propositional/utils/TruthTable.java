@@ -41,7 +41,7 @@ public class TruthTable {
             final String binaryNumber = createBinary(row, symbol.LENGTH);
             final String builder = IntStream.range(0, binaryNumber.length())
                     .mapToObj(i -> " " + binaryNumber.charAt(i) + " |")
-                    .collect(Collectors.joining("", "|", "| " + (symbol.valueEquals(binaryNumber) ? "1" : "0") + " |"));
+                    .collect(Collectors.joining("", "|", createSuffix(binaryNumber)));
             rows.add(builder);
         }
     }
@@ -52,6 +52,10 @@ public class TruthTable {
             binaryNumber.insert(0, "0");
         }
         return binaryNumber.toString();
+    }
+
+    private String createSuffix(String binaryNumber) {
+        return "| " + (symbol.valueEquals(binaryNumber) ? "1" : "0") + " |";
     }
 
     public void print() {
