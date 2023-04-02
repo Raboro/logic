@@ -35,4 +35,13 @@ public class Or extends Symbol {
                 return true;
         return false;
     }
+
+    @Override
+    public boolean valueEquals(String reference) {
+        final boolean[] referenceValues = new boolean[reference.length()];
+        for (int i = 0; i < reference.length(); i++) {
+            referenceValues[i] = reference.charAt(i) != '0';
+        }
+        return or(referenceValues) == value();
+    }
 }

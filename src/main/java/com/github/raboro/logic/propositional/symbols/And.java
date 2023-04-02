@@ -35,4 +35,13 @@ public class And extends Symbol {
             result = and(result, values[i]);
         return result;
     }
+
+    @Override
+    public boolean valueEquals(String reference) {
+        final boolean[] referenceValues = new boolean[reference.length()];
+        for (int i = 0; i < reference.length(); i++) {
+            referenceValues[i] = reference.charAt(i) != '0';
+        }
+        return and(referenceValues) == value();
+    }
 }

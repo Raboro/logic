@@ -18,6 +18,8 @@ public abstract class Symbol {
 
     public abstract boolean value();
 
+    public abstract boolean valueEquals(String reference);
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
