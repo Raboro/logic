@@ -55,5 +55,4 @@ public class And extends Symbol {
     private Symbol construct(boolean...values) {
         return new And(values);
     }
-
 }
