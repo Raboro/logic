@@ -27,9 +27,8 @@ public abstract class Symbol {
 
     protected boolean[] constructParameters(int variableCounter) {
         final boolean[] variables = new boolean[variableCounter];
-        for (int i = 0; i < variableCounter; i++) {
+        for (int i = 0; i < variableCounter; i++)
             variables[i] = true;
-        }
         return variables;
     }
 
