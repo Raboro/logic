@@ -14,7 +14,7 @@ class AndTest {
 
     @Test
     void testSymbol() {
-        assertEquals("\u2227", new And(true, true).SYMBOL);
+        assertEquals("\u2227", new And(true, true).symbol);
     }
 
     @Test

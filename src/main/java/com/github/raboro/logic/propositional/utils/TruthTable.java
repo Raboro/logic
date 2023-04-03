@@ -27,18 +27,18 @@ public class TruthTable {
     }
 
     private void buildSpaceRow() {
-        spaceRow = "|---".repeat(Math.max(0, symbol.LENGTH)) + "||---|";
+        spaceRow = "|---".repeat(Math.max(0, symbol.length)) + "||---|";
     }
 
     private void buildHeader() {
-        header = IntStream.range(1, symbol.LENGTH + 1)
+        header = IntStream.range(1, symbol.length + 1)
                 .mapToObj(i -> " " + i + " |")
                 .collect(Collectors.joining("", "|", "| y " + "|"));
     }
 
     private void buildRows() {
-        for (int row = 0; row < Math.pow(2, symbol.LENGTH); row++) {
-            rows.add(buildRow(createBinary(row, symbol.LENGTH)));
+        for (int row = 0; row < Math.pow(2, symbol.length); row++) {
+            rows.add(buildRow(createBinary(row, symbol.length)));
         }
     }
 

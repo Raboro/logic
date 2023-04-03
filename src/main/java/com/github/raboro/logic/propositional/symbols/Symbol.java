@@ -11,13 +11,13 @@ import java.util.stream.IntStream;
  */
 public abstract class Symbol {
 
-    public final String SYMBOL;
-    public final int LENGTH;
+    public final String symbol;
+    public final int length;
     private final boolean[] values;
 
     Symbol(String symbol, boolean... values) {
-        SYMBOL = symbol;
-        LENGTH = values.length;
+        this.symbol = symbol;
+        length = values.length;
         this.values = values;
     }
 
@@ -41,7 +41,7 @@ public abstract class Symbol {
     @Override
     public String toString() {
         return IntStream.range(0, values.length)
-                .mapToObj(i -> values[i] + " " + (lastValue(i) ? "" : SYMBOL) + " ")
+                .mapToObj(i -> values[i] + " " + (lastValue(i) ? "" : symbol) + " ")
                 .collect(Collectors.joining());
     }
 

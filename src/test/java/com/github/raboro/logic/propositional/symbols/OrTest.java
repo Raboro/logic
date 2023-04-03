@@ -13,7 +13,7 @@ class OrTest {
 
     @Test
     void testSymbol() {
-        assertEquals("\u2228", new Or(true, true).SYMBOL);
+        assertEquals("\u2228", new Or(true, true).symbol);
     }
 
     @Test
