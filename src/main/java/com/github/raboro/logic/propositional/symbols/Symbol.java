@@ -2,6 +2,9 @@ package com.github.raboro.logic.propositional.symbols;
 
 import com.github.raboro.logic.propositional.utils.TruthTable;
 
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 /**
  * @author Raboro
  * @since 1.0-SNAPSHOT
@@ -37,12 +40,12 @@ public abstract class Symbol {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < values.length; i++) {
-            result.append(values[i]).append(" ");
-            if (i != values.length - 1)
-                result.append(SYMBOL).append(" ");
-        }
-        return result.toString();
+        return IntStream.range(0, values.length)
+                .mapToObj(i -> values[i] + " " + (lastValue(i) ? "" : SYMBOL) + " ")
+                .collect(Collectors.joining());
+    }
+
+    private boolean lastValue(int i) {
+        return i == values.length - 1;
     }
 }
