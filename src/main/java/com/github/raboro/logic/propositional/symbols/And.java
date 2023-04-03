@@ -44,4 +44,17 @@ public class And extends Symbol {
         }
         return and(referenceValues) == value();
     }
+
+    public void baseTruthTable() {
+        baseTruthTable(2);
+    }
+
+    public void baseTruthTable(int variableCounter) {
+        super.baseTruthTable(construct(super.constructParameters(variableCounter)));
+    }
+
+    private Symbol construct(boolean...values) {
+        return new And(values);
+    }
+
 }

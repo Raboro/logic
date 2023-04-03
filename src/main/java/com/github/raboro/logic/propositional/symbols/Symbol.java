@@ -1,5 +1,7 @@
 package com.github.raboro.logic.propositional.symbols;
 
+import com.github.raboro.logic.propositional.utils.TruthTable;
+
 /**
  * @author Raboro
  * @since 1.0-SNAPSHOT
@@ -19,6 +21,19 @@ public abstract class Symbol {
     public abstract boolean value();
 
     public abstract boolean valueEquals(String reference);
+
+    protected boolean[] constructParameters(int variableCounter) {
+        final boolean[] variables = new boolean[variableCounter];
+        for (int i = 0; i < variableCounter; i++) {
+            variables[i] = true;
+        }
+        return variables;
+    }
+
+    protected void baseTruthTable(Symbol symbol) {
+        final TruthTable truthTable = new TruthTable(symbol);
+        truthTable.print();
+    }
 
     @Override
     public String toString() {
