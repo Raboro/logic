@@ -52,7 +52,7 @@ public class And extends Symbol {
         super.baseTruthTable(construct(super.constructParameters(variableCounter)));
     }
 
-    private Symbol construct(boolean...values) {
+    private Symbol construct(boolean... values) {
         return new And(values);
     }
 }
