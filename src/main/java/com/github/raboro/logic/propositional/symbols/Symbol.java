@@ -2,6 +2,7 @@ package com.github.raboro.logic.propositional.symbols;
 
 import com.github.raboro.logic.propositional.utils.TruthTable;
 
+import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -27,8 +28,7 @@ public abstract class Symbol {
 
     protected boolean[] constructParameters(int variableCounter) {
         final boolean[] variables = new boolean[variableCounter];
-        for (int i = 0; i < variableCounter; i++)
-            variables[i] = true;
+        Arrays.fill(variables, true);
         return variables;
     }
 
