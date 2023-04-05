@@ -45,6 +45,11 @@ public class Or extends Symbol {
         return or(constructReference(reference)) == value();
     }
 
+    @Override
+    public boolean valueEquals(boolean... reference) {
+        return reference.length == values.length && or(reference) == value();
+    }
+
     public void baseTruthTable() {
         baseTruthTable(2);
     }

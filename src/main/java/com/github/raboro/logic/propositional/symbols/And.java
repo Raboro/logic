@@ -43,6 +43,11 @@ public class And extends Symbol {
         return and(constructReference(reference)) == value();
     }
 
+    @Override
+    public boolean valueEquals(boolean... reference) {
+        return reference.length == values.length && and(reference) == value();
+    }
+
     public void baseTruthTable() {
         baseTruthTable(2);
     }
