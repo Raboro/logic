@@ -22,17 +22,21 @@ public class Or extends Symbol {
     }
 
     public static boolean or(boolean... values) {
-        for (boolean value : values)
-            if (value)
+        for (boolean value : values) {
+            if (value) {
                 return true;
+            }
+        }
         return false;
     }
 
     @Override
     public boolean value() {
-        for (boolean value : values)
-            if (value)
+        for (boolean value : values) {
+            if (value) {
                 return true;
+            }
+        }
         return false;
     }
 

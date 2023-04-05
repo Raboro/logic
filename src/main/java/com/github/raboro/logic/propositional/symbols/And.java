@@ -23,16 +23,18 @@ public class And extends Symbol {
 
     public static boolean and(boolean... values) {
         boolean result = values[0];
-        for (int i = 1; i < values.length; i++)
+        for (int i = 1; i < values.length; i++) {
             result = and(result, values[i]);
+        }
         return result;
     }
 
     @Override
     public boolean value() {
         boolean result = values[0];
-        for (int i = 1; i < values.length; i++)
+        for (int i = 1; i < values.length; i++) {
             result = and(result, values[i]);
+        }
         return result;
     }
 
