@@ -26,6 +26,14 @@ public abstract class Symbol {
 
     public abstract boolean valueEquals(String reference);
 
+    protected boolean[] constructReference(String reference) {
+        final boolean[] referenceValues = new boolean[reference.length()];
+        for (int i = 0; i < reference.length(); i++) {
+            referenceValues[i] = reference.charAt(i) != '0';
+        }
+        return referenceValues;
+    }
+
     protected boolean[] constructParameters(int variableCounter) {
         final boolean[] variables = new boolean[variableCounter];
         Arrays.fill(variables, true);
