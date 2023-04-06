@@ -24,6 +24,9 @@ public abstract class Symbol {
 
     public abstract boolean value();
 
+    public abstract boolean valueOf(boolean... values);
+
+    public abstract boolean valueOf(String reference);
     public abstract boolean valueEquals(String reference);
 
     public abstract boolean valueEquals(boolean... reference);

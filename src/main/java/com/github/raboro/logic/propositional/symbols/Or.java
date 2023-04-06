@@ -41,6 +41,16 @@ public class Or extends Symbol {
     }
 
     @Override
+    public boolean valueOf(boolean... values) {
+        return new Or(values).value();
+    }
+
+    @Override
+    public boolean valueOf(String reference) {
+        return new Or(constructReference(reference)).value();
+    }
+
+    @Override
     public boolean valueEquals(String reference) {
         return or(constructReference(reference)) == value();
     }

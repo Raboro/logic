@@ -39,6 +39,16 @@ public class And extends Symbol {
     }
 
     @Override
+    public boolean valueOf(boolean... values) {
+        return new And(values).value();
+    }
+
+    @Override
+    public boolean valueOf(String reference) {
+        return new And(constructReference(reference)).value();
+    }
+
+    @Override
     public boolean valueEquals(String reference) {
         return and(constructReference(reference)) == value();
     }
