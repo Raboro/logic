@@ -57,7 +57,7 @@ public class TruthTable {
     }
 
     private String createSuffix(String binaryNumber) {
-        return "| " + (symbol.valueEquals(binaryNumber) ? "1" : "0") + " |";
+        return "| " + (symbol.valueOf(binaryNumber) ? "1" : "0") + " |";
     }
 
     public void print() {
