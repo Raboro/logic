@@ -1,6 +1,6 @@
 package com.github.raboro.logic.propositional.exception;
 
-public class NotEnoughInputValuesException extends RuntimeException{
+public class NotEnoughInputValuesException extends RuntimeException {
 
     public NotEnoughInputValuesException() {
         this("Not enough input values");
