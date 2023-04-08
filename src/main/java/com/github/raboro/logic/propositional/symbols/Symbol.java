@@ -1,5 +1,6 @@
 package com.github.raboro.logic.propositional.symbols;
 
+import com.github.raboro.logic.propositional.exception.NoBinaryInputException;
 import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesException;
 import com.github.raboro.logic.propositional.utils.TruthTable;
 
@@ -80,11 +81,24 @@ public abstract class Symbol {
     public abstract boolean valueEquals(boolean... reference);
 
     protected boolean[] constructReference(String reference) {
+        validateReference(reference);
         final boolean[] referenceValues = new boolean[reference.length()];
         for (int i = 0; i < reference.length(); i++) {
             referenceValues[i] = reference.charAt(i) != '0';
         }
         return referenceValues;
+    }
+
+    private void validateReference(String reference) {
+        for (char c : reference.toCharArray()) {
+            if (notInBinary(c)) {
+                throw new NoBinaryInputException(c);
+            }
+        }
+    }
+
+    private boolean notInBinary(char c) {
+        return c != '0' && c != '1';
     }
 
     protected boolean[] constructParameters(int variableCounter) {
