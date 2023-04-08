@@ -8,15 +8,12 @@ import static com.github.raboro.logic.propositional.symbols.And.and;
  */
 public class Nand extends Symbol {
 
-    private final boolean[] values;
-
     public Nand(boolean a, boolean b) {
         this(new boolean[]{a, b});
     }
 
     public Nand(boolean... values) {
         super("\u22BC", values);
-        this.values = values;
     }
 
     public static boolean nand(boolean a, boolean b) {

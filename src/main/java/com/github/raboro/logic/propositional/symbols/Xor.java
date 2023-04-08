@@ -6,15 +6,12 @@ package com.github.raboro.logic.propositional.symbols;
  */
 public class Xor extends Symbol {
 
-    private final boolean[] values;
-
     public Xor(boolean a, boolean b) {
         this(new boolean[]{a, b});
     }
 
     public Xor(boolean... values) {
         super("\u22BB", values);
-        this.values = values;
     }
 
     public static boolean xor(boolean a, boolean b) {

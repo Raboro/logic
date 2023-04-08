@@ -8,15 +8,12 @@ import static com.github.raboro.logic.propositional.symbols.Or.or;
  */
 public class Nor extends Symbol {
 
-    private final boolean[] values;
-
     public Nor(boolean a, boolean b) {
         this(new boolean[]{a, b});
     }
 
     public Nor(boolean... values) {
         super("↓", values);
-        this.values = values;
     }
 
     public static boolean nor(boolean a, boolean b) {

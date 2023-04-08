@@ -6,15 +6,12 @@ package com.github.raboro.logic.propositional.symbols;
  */
 public class And extends Symbol {
 
-    private final boolean[] values;
-
     public And(boolean a, boolean b) {
         this(new boolean[]{a, b});
     }
 
     public And(boolean... values) {
         super("\u2227", values);
-        this.values = values;
     }
 
     public static boolean and(boolean a, boolean b) {

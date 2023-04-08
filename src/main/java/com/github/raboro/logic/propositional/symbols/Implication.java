@@ -8,15 +8,12 @@ import static com.github.raboro.logic.propositional.symbols.Or.or;
  */
 public class Implication extends Symbol {
 
-    private final boolean[] values;
-
     public Implication(boolean a, boolean b) {
         this(new boolean[]{a, b});
     }
 
     public Implication(boolean... values) {
         super("\u27F6", values);
-        this.values = values;
     }
 
     public static boolean implication(boolean a, boolean b) {

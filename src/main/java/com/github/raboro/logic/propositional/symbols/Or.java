@@ -6,7 +6,6 @@ package com.github.raboro.logic.propositional.symbols;
  */
 public class Or extends Symbol {
 
-    private final boolean[] values;
 
     public Or(boolean a, boolean b) {
         this(new boolean[]{a, b});
@@ -14,7 +13,6 @@ public class Or extends Symbol {
 
     public Or(boolean... values) {
         super("\u2228", values);
-        this.values = values;
     }
 
     public static boolean or(boolean a, boolean b) {

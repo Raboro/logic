@@ -14,7 +14,7 @@ public abstract class Symbol {
 
     public final String symbol;
     public final int length;
-    private final boolean[] values;
+    protected final boolean[] values;
 
     Symbol(String symbol, boolean... values) {
         this.symbol = symbol;
