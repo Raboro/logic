@@ -1,5 +1,7 @@
 package com.github.raboro.logic.propositional.symbols;
 
+import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesException;
+
 /**
  * @author Raboro
  * @since 1.0-SNAPSHOT
@@ -20,6 +22,9 @@ public class Or extends Symbol {
     }
 
     public static boolean or(boolean... values) {
+        if (notEnoughValues(values)) {
+            throw new NotEnoughInputValuesException(values.length);
+        }
         for (boolean value : values) {
             if (value) {
                 return true;

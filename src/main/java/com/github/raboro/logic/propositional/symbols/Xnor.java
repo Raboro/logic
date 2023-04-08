@@ -1,5 +1,7 @@
 package com.github.raboro.logic.propositional.symbols;
 
+import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesException;
+
 import java.util.stream.IntStream;
 
 import static com.github.raboro.logic.propositional.symbols.Xor.xor;
@@ -23,6 +25,9 @@ public class Xnor extends Symbol {
     }
 
     public static boolean xnor(boolean... values) {
+        if (notEnoughValues(values)) {
+            throw new NotEnoughInputValuesException(values.length);
+        }
         return IntStream.range(1, values.length)
                 .noneMatch(i -> values[0] != values[i]);
     }

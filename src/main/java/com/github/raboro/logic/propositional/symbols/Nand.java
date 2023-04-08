@@ -1,5 +1,7 @@
 package com.github.raboro.logic.propositional.symbols;
 
+import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesException;
+
 import static com.github.raboro.logic.propositional.symbols.And.and;
 
 /**
@@ -21,6 +23,9 @@ public class Nand extends Symbol {
     }
 
     public static boolean nand(boolean... values) {
+        if (notEnoughValues(values)) {
+            throw new NotEnoughInputValuesException(values.length);
+        }
         boolean result = values[0];
         for (int i = 1; i < values.length; i++) {
             result = and(result, values[i]);

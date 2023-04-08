@@ -1,5 +1,6 @@
 package com.github.raboro.logic.propositional.symbols;
 
+import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesException;
 import com.github.raboro.logic.propositional.utils.TruthTable;
 
 import java.util.Arrays;
@@ -17,9 +18,20 @@ public abstract class Symbol {
     protected final boolean[] values;
 
     Symbol(String symbol, boolean... values) {
+        if (notEnoughValues(values)) {
+            throw new NotEnoughInputValuesException(values.length);
+        }
         this.symbol = symbol;
         length = values.length;
         this.values = values;
+    }
+
+    protected static boolean notEnoughValues(boolean[] values) {
+        return values.length < 2;
+    }
+
+    protected static boolean notEnoughValues(String values) {
+        return values.length() < 2;
     }
 
     /**
