@@ -22,13 +22,49 @@ public abstract class Symbol {
         this.values = values;
     }
 
+    /**
+     * @return evaluates the result of the given inputs with the symbol
+     */
     public abstract boolean value();
 
+    /**
+     * @param values
+     * are the input arguments (booleans) for the evaluation of the symbol
+     * @return evaluates the result of <b>values</b> with the symbol
+     */
     public abstract boolean valueOf(boolean... values);
 
+    /**
+     * @param reference
+     * is the input argument for the evaluation of the symbol. The String contains a binary representation of the input
+     * <br>
+     * (e.g. 011 -> false, true, true)
+     * <br>
+     * (false -> 0; true -> 1)
+     * @return evaluates the result of <b>reference</b> with the symbol
+     */
     public abstract boolean valueOf(String reference);
+
+    /**
+     * @param reference
+     * is the input argument for the evaluation of the symbol. The String contains a binary representation of the input
+     * <br>
+     * (e.g. 011 -> false, true, true)
+     * <br>
+     * (false -> 0; true -> 1)
+     * @return <b>true</b> if result of the given input <b>reference</b> is the same as the already passed input in the constructor of the symbol,
+     * else <b>false</b>
+     */
     public abstract boolean valueEquals(String reference);
 
+    /**
+     * @param reference
+     * are the input arguments (booleans) for the evaluation of the symbol
+     * <br>
+     * reference needs to have the same size as the given input have
+     * @return <b>true</b> if result of the given input <b>reference</b> is the same as the already passed input in the constructor of the symbol,
+     * else <b>false</b>
+     */
     public abstract boolean valueEquals(boolean... reference);
 
     protected boolean[] constructReference(String reference) {
