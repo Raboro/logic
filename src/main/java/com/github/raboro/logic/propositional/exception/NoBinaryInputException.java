@@ -1,5 +1,9 @@
 package com.github.raboro.logic.propositional.exception;
 
+/**
+ * @author Raboro
+ * @since 1.0-SNAPSHOT
+ */
 public class NoBinaryInputException extends RuntimeException {
 
     public NoBinaryInputException() {
