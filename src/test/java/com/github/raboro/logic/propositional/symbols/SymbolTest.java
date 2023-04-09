@@ -1,9 +1,9 @@
 package com.github.raboro.logic.propositional.symbols;
 
+import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesException;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Raboro
@@ -61,6 +61,23 @@ class SymbolTest {
             for (int i = 0; i < 8; i++) {
                 assertTrue(mapper.getValueEqualsNeededSymbols()[i].valueEquals(mapper.getValueEqualsNeededBooleanReference()[i]));
             }
+        }
+    }
+
+    @Test
+    void testExceptionThrownIfInvalidInputNoArguments() {
+        if (mapper != null) {
+            Symbol symbol = mapper.getSymbol();
+            assertThrows(NotEnoughInputValuesException.class, symbol::valueOf);
+        }
+    }
+
+    @Test
+    void testExceptionThrownIfInvalidInputOneArguments() {
+        if (mapper != null) {
+            Symbol symbol = mapper.getSymbol();
+            assertThrows(NotEnoughInputValuesException.class, () -> symbol.valueOf(true));
+            assertThrows(NotEnoughInputValuesException.class, () -> symbol.valueOf(false));
         }
     }
 }
