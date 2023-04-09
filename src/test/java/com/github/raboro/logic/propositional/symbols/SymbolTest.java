@@ -21,10 +21,19 @@ class SymbolTest {
     }
 
     @Test
-    void testValue() {
+    void testValueBooleanReference() {
         if (mapper != null) {
             for (int i = 0; i < mapper.getValueExpected().length; i++) {
                 assertEquals(mapper.getValueExpected()[i], mapper.getSymbol().valueOf(mapper.getSymbol().constructReference(constructBinaryOfDecimal(i))));
+            }
+        }
+    }
+
+    @Test
+    void testValueStringReference() {
+        if (mapper != null) {
+            for (int i = 0; i < mapper.getValueExpected().length; i++) {
+                assertEquals(mapper.getValueExpected()[i], mapper.getSymbol().valueOf(constructBinaryOfDecimal(i)));
             }
         }
     }
