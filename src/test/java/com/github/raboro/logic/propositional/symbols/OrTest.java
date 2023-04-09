@@ -1,10 +1,10 @@
 package com.github.raboro.logic.propositional.symbols;
 
+import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesException;
 import org.junit.jupiter.api.Test;
 
 import static com.github.raboro.logic.propositional.symbols.Or.or;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Raboro
@@ -48,8 +48,19 @@ class OrTest extends SymbolTest {
     @Test
     void testStaticOrMultipleValues() {
         assertFalse(or(false, false, false, false));
-        assertTrue(or(false, true, false, false,true));
+        assertTrue(or(false, true, false, false, true));
         assertTrue(or(true, false, false));
         assertTrue(or(true, true, true, true, true));
+    }
+
+    @Test
+    void testExceptionThrownIfInvalidInputNoArguments() {
+        assertThrows(NotEnoughInputValuesException.class, Or::or);
+    }
+
+    @Test
+    void testExceptionThrownIfInvalidInputOneArguments() {
+        assertThrows(NotEnoughInputValuesException.class, () -> or(true));
+        assertThrows(NotEnoughInputValuesException.class, () -> or(false));
     }
 }

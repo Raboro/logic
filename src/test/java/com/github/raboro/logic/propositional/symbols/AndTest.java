@@ -1,11 +1,11 @@
 package com.github.raboro.logic.propositional.symbols;
 
 
+import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesException;
 import org.junit.jupiter.api.Test;
 
 import static com.github.raboro.logic.propositional.symbols.And.and;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Raboro
@@ -53,5 +53,16 @@ class AndTest extends SymbolTest {
         assertFalse(and(true, false, true, true, false, true));
         assertTrue(and(true, true, true, true, true, true));
         assertTrue(and(true, true, true));
+    }
+
+    @Test
+    void testExceptionThrownIfInvalidInputNoArguments() {
+        assertThrows(NotEnoughInputValuesException.class, And::and);
+    }
+
+    @Test
+    void testExceptionThrownIfInvalidInputOneArguments() {
+        assertThrows(NotEnoughInputValuesException.class, () -> and(true));
+        assertThrows(NotEnoughInputValuesException.class, () -> and(false));
     }
 }
