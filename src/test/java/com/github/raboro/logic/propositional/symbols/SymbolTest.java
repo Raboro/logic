@@ -78,6 +78,9 @@ class SymbolTest {
             Symbol symbol = mapper.getSymbol();
             assertThrows(NotEnoughInputValuesException.class, () -> symbol.valueOf(true));
             assertThrows(NotEnoughInputValuesException.class, () -> symbol.valueOf(false));
+            assertThrows(NotEnoughInputValuesException.class, () -> symbol.valueOf(""));
+            assertThrows(NotEnoughInputValuesException.class, () -> symbol.valueOf(" "));
+            assertThrows(NotEnoughInputValuesException.class, () -> symbol.valueOf("1"));
         }
     }
 }
