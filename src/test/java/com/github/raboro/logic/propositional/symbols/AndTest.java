@@ -4,17 +4,38 @@ package com.github.raboro.logic.propositional.symbols;
 import org.junit.jupiter.api.Test;
 
 import static com.github.raboro.logic.propositional.symbols.And.and;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Raboro
  * @since 1.0-SNAPSHOT
  */
-class AndTest {
+class AndTest extends SymbolTest {
 
-    @Test
-    void testSymbol() {
-        assertEquals("\u2227", new And(true, true).symbol);
+    AndTest() {
+        mapper = constructMapper();
+    }
+
+    private SymbolTestMapper constructMapper() {
+        Symbol symbol = new And(true, true);
+        Symbol[] symbols = new Symbol[]{
+                new And(false, false, false),
+                new And(false, false, true),
+                new And(false, true, false),
+                new And(false, true, true),
+                new And(true, false, false),
+                new And(true, false, true),
+                new And(true, true, false),
+                new And(true, true, true)
+        };
+        SymbolTestMapper.SymbolTestMapperBuilder builder = new SymbolTestMapper.SymbolTestMapperBuilder(symbol);
+        return builder.setValueExpected(new boolean[]{false, false, false, false, false, false, false, true})
+                .setSymbol(symbol.symbol)
+                .setValueEqualsNeededSymbols(symbols)
+                .setValueEqualsNeededBinaryReference()
+                .setValueEqualsNeededBooleanReference()
+                .build();
     }
 
     @Test
@@ -32,22 +53,5 @@ class AndTest {
         assertFalse(and(true, false, true, true, false, true));
         assertTrue(and(true, true, true, true, true, true));
         assertTrue(and(true, true, true));
-    }
-
-    @Test
-    void testAndTwoInputs() {
-        assertFalse(new And(false, false).value());
-        assertFalse(new And(true, false).value());
-        assertFalse(new And(false, true).value());
-        assertTrue(new And(true, true).value());
-    }
-
-    @Test
-    void testAndMultipleInputs() {
-        assertFalse(new And(false, true, false, false).value());
-        assertFalse(new And(false, true, false).value());
-        assertFalse(new And(true, false, true, true, false, true).value());
-        assertTrue(new And(true, true, true, true, true, true).value());
-        assertTrue(new And(true, true, true).value());
     }
 }
