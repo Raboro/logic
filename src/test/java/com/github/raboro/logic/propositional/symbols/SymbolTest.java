@@ -1,5 +1,6 @@
 package com.github.raboro.logic.propositional.symbols;
 
+import com.github.raboro.logic.propositional.exception.NoBinaryInputException;
 import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesException;
 import org.junit.jupiter.api.Test;
 
@@ -81,6 +82,14 @@ class SymbolTest {
             assertThrows(NotEnoughInputValuesException.class, () -> symbol.valueOf(""));
             assertThrows(NotEnoughInputValuesException.class, () -> symbol.valueOf(" "));
             assertThrows(NotEnoughInputValuesException.class, () -> symbol.valueOf("1"));
+        }
+    }
+
+    @Test
+    void testExceptionThrownIfInvalidInputNoBinaryString() {
+        if (mapper != null) {
+            Symbol symbol = mapper.getSymbol();
+            assertThrows(NoBinaryInputException.class, () -> symbol.valueOf("35"));
         }
     }
 }
