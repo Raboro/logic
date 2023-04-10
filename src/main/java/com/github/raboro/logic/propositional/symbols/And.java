@@ -8,10 +8,6 @@ import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesExcep
  */
 public class And extends Symbol {
 
-    public And(boolean a, boolean b) {
-        this(new boolean[]{a, b});
-    }
-
     public And(boolean... values) {
         super("\u2227", values);
     }

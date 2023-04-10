@@ -10,10 +10,6 @@ import static com.github.raboro.logic.propositional.symbols.Or.or;
  */
 public class Nor extends Symbol {
 
-    public Nor(boolean a, boolean b) {
-        this(new boolean[]{a, b});
-    }
-
     public Nor(boolean... values) {
         super("↓", values);
     }

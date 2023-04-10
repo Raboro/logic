@@ -8,11 +8,6 @@ import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesExcep
  */
 public class Or extends Symbol {
 
-
-    public Or(boolean a, boolean b) {
-        this(new boolean[]{a, b});
-    }
-
     public Or(boolean... values) {
         super("\u2228", values);
     }

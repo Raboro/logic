@@ -10,10 +10,6 @@ import static com.github.raboro.logic.propositional.symbols.Or.or;
  */
 public class Implication extends Symbol {
 
-    public Implication(boolean a, boolean b) {
-        this(new boolean[]{a, b});
-    }
-
     public Implication(boolean... values) {
         super("\u27F6", values);
     }

@@ -12,10 +12,6 @@ import static com.github.raboro.logic.propositional.symbols.Xor.xor;
  */
 public class Xnor extends Symbol {
 
-    public Xnor(boolean a, boolean b) {
-        this(new boolean[]{a, b});
-    }
-
     public Xnor(boolean... values) {
         super("\u27F7", values);
     }

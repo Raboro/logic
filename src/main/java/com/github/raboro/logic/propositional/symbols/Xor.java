@@ -8,10 +8,6 @@ import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesExcep
  */
 public class Xor extends Symbol {
 
-    public Xor(boolean a, boolean b) {
-        this(new boolean[]{a, b});
-    }
-
     public Xor(boolean... values) {
         super("\u22BB", values);
     }
