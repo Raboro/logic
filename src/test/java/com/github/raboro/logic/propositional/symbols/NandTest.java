@@ -34,6 +34,8 @@ class NandTest extends SymbolTest {
                 .setValueEqualsNeededSymbols(symbols)
                 .setValueEqualsNeededBinaryReference()
                 .setValueEqualsNeededBooleanReference()
+                .setValueEqualsInvalidBooleanReference(new boolean[]{false, true})
+                .valueEqualsInvalidStringReference("01")
                 .build();
     }
 

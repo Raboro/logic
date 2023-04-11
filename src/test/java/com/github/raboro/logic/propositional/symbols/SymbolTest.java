@@ -66,6 +66,27 @@ class SymbolTest {
     }
 
     @Test
+    void testValueEqualsBooleanReferenceFalse() {
+        if (mapper != null) {
+            assertFalse(mapper.getSymbol().valueEquals(mapper.getValueEqualsInvalidBooleanReference()));
+        }
+    }
+
+    @Test
+    void testValueEqualsStringReferenceFalse() {
+        if (mapper != null) {
+            assertFalse(mapper.getSymbol().valueEquals(mapper.getValueEqualsInvalidStringReference()));
+        }
+    }
+
+    @Test
+    void testValueEqualsBooleanWringLength() {
+        if (mapper != null) {
+            assertFalse(mapper.getSymbol().valueEquals(false, false, false));
+        }
+    }
+
+    @Test
     void testExceptionThrownIfInvalidInputNoArguments() {
         if (mapper != null) {
             Symbol symbol = mapper.getSymbol();

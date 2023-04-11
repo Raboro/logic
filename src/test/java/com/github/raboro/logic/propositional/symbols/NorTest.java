@@ -34,6 +34,8 @@ class NorTest extends SymbolTest {
                 .setValueEqualsNeededSymbols(symbols)
                 .setValueEqualsNeededBinaryReference()
                 .setValueEqualsNeededBooleanReference()
+                .setValueEqualsInvalidBooleanReference(new boolean[]{false, false})
+                .valueEqualsInvalidStringReference("00")
                 .build();
     }
 

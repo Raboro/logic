@@ -14,6 +14,8 @@ class SymbolTestMapper {
     private final Symbol[] valueEqualsNeededSymbols;
     private final String[] valueEqualsNeededBinaryReference;
     private final boolean[][] valueEqualsNeededBooleanReference;
+    private final boolean[] valueEqualsInvalidBooleanReference;
+    private final String valueEqualsInvalidStringReference;
 
     SymbolTestMapper(SymbolTestMapperBuilder builder) {
         this.symbol = builder.symbol;
@@ -22,6 +24,8 @@ class SymbolTestMapper {
         this.valueEqualsNeededSymbols = builder.valueEqualsNeededSymbols;
         this.valueEqualsNeededBinaryReference = builder.valueEqualsNeededBinaryReference;
         this.valueEqualsNeededBooleanReference = builder.valueEqualsNeededBooleanReference;
+        this.valueEqualsInvalidBooleanReference = builder.valueEqualsInvalidBooleanReference;
+        this.valueEqualsInvalidStringReference = builder.valueEqualsInvalidStringReference;
     }
 
     public Symbol getSymbol() {
@@ -48,6 +52,14 @@ class SymbolTestMapper {
         return valueEqualsNeededBooleanReference;
     }
 
+    public boolean[] getValueEqualsInvalidBooleanReference() {
+        return valueEqualsInvalidBooleanReference;
+    }
+
+    public String getValueEqualsInvalidStringReference() {
+        return valueEqualsInvalidStringReference;
+    }
+
     public static class SymbolTestMapperBuilder {
 
         private final Symbol symbol;
@@ -56,6 +68,8 @@ class SymbolTestMapper {
         private Symbol[] valueEqualsNeededSymbols;
         private String[] valueEqualsNeededBinaryReference;
         private boolean[][] valueEqualsNeededBooleanReference;
+        private boolean[] valueEqualsInvalidBooleanReference;
+        private String valueEqualsInvalidStringReference;
 
         public SymbolTestMapperBuilder(Symbol symbol) {
             this.symbol = symbol;
@@ -95,13 +109,24 @@ class SymbolTestMapper {
             return this;
         }
 
+        public SymbolTestMapperBuilder setValueEqualsInvalidBooleanReference(boolean[] reference) {
+            valueEqualsInvalidBooleanReference = reference;
+            return this;
+        }
+
+        public SymbolTestMapperBuilder valueEqualsInvalidStringReference(String reference) {
+            valueEqualsInvalidStringReference = reference;
+            return this;
+        }
+
         public SymbolTestMapper build() {
             verify();
             return new SymbolTestMapper(this);
         }
 
         private void verify() {
-            if (valueExpected.length != 8 || symbolString.isBlank() || valueEqualsNeededSymbols.length != 8) {
+            if (valueExpected.length != 8 || symbolString.isBlank() || valueEqualsNeededSymbols.length != 8 ||
+                    valueEqualsInvalidBooleanReference.length != 2 || valueEqualsInvalidStringReference.length() != 2) {
                 throw new ValueNotSameSizeException();
             }
         }

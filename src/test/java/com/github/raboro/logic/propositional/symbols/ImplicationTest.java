@@ -35,6 +35,8 @@ class ImplicationTest extends SymbolTest {
                 .setValueEqualsNeededSymbols(symbols)
                 .setValueEqualsNeededBinaryReference()
                 .setValueEqualsNeededBooleanReference()
+                .setValueEqualsInvalidBooleanReference(new boolean[]{true, false})
+                .valueEqualsInvalidStringReference("10")
                 .build();
     }
 
