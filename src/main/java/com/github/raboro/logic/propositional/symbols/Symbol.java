@@ -116,7 +116,8 @@ public abstract class Symbol {
     public String toString() {
         return IntStream.range(0, values.length)
                 .mapToObj(i -> values[i] + " " + (lastValue(i) ? "" : symbol) + " ")
-                .collect(Collectors.joining());
+                .collect(Collectors.joining())
+                .strip();
     }
 
     private boolean lastValue(int i) {
