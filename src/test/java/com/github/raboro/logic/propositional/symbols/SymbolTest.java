@@ -92,4 +92,12 @@ class SymbolTest {
             assertThrows(NoBinaryInputException.class, () -> symbol.valueOf("35"));
         }
     }
+
+    @Test
+    void testToString() {
+        if (mapper != null) {
+            Symbol symbol = mapper.getSymbol();
+            assertEquals(String.format("true %s true", symbol.symbol), symbol.toString());
+        }
+    }
 }
