@@ -15,6 +15,13 @@ class SymbolTest {
     protected SymbolTestMapper mapper = null;
 
     @Test
+    void testSymbolConstructorInvalidString() {
+        if (mapper == null) {
+            assertThrows(NotEnoughInputValuesException.class, And::new);
+        }
+    }
+
+    @Test
     void testSymbol() {
         if (mapper != null) {
             assertEquals(mapper.getSymbolString(), mapper.getSymbol().symbol);
