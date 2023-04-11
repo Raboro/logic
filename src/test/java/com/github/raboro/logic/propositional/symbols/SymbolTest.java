@@ -2,6 +2,7 @@ package com.github.raboro.logic.propositional.symbols;
 
 import com.github.raboro.logic.propositional.exception.NoBinaryInputException;
 import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesException;
+import com.github.raboro.logic.propositional.exception.ValueNotSameSizeException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -89,7 +90,7 @@ class SymbolTest {
     @Test
     void testValueEqualsBooleanWringLength() {
         if (mapper != null) {
-            assertFalse(mapper.getSymbol().valueEquals(false, false, false));
+            assertThrows(ValueNotSameSizeException.class, () -> mapper.getSymbol().valueEquals(false, false, false));
         }
     }
 

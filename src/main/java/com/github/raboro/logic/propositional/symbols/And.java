@@ -1,6 +1,7 @@
 package com.github.raboro.logic.propositional.symbols;
 
 import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesException;
+import com.github.raboro.logic.propositional.exception.ValueNotSameSizeException;
 
 /**
  * @author Raboro
@@ -53,7 +54,12 @@ public class And extends Symbol {
 
     @Override
     public boolean valueEquals(boolean... reference) {
-        return reference.length == values.length && and(reference) == value();
+        if (reference.length != values.length) {
+            throw new ValueNotSameSizeException(
+                    String.format("Your input (size %s has not the same size as required %s",
+                            reference.length, values.length));
+        }
+        return and(reference) == value();
     }
 
     public void baseTruthTable() {

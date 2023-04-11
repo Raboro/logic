@@ -1,6 +1,7 @@
 package com.github.raboro.logic.propositional.symbols;
 
 import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesException;
+import com.github.raboro.logic.propositional.exception.ValueNotSameSizeException;
 
 import java.util.stream.IntStream;
 
@@ -51,7 +52,12 @@ public class Xnor extends Symbol {
 
     @Override
     public boolean valueEquals(boolean... reference) {
-        return reference.length == values.length && xnor(reference) == value();
+        if (reference.length != values.length) {
+            throw new ValueNotSameSizeException(
+                    String.format("Your input (size %s has not the same size as required %s",
+                            reference.length, values.length));
+        }
+        return xnor(reference) == value();
     }
 
     public void baseTruthTable() {
