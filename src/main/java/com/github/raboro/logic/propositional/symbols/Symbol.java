@@ -31,10 +31,6 @@ public abstract class Symbol {
         return values.length < 2;
     }
 
-    protected static boolean notEnoughValues(String values) {
-        return values.length() < 2;
-    }
-
     /**
      * @return evaluates the result of the given inputs with the symbol
      */
