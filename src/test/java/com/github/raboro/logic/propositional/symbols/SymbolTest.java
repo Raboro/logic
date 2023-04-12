@@ -90,7 +90,8 @@ class SymbolTest {
     @Test
     void testValueEqualsBooleanWringLength() {
         if (mapper != null) {
-            assertThrows(ValueNotSameSizeException.class, () -> mapper.getSymbol().valueEquals(false, false, false));
+            Symbol symbol = mapper.getSymbol();
+            assertThrows(ValueNotSameSizeException.class, () -> symbol.valueEquals(false, false, false));
         }
     }
 
