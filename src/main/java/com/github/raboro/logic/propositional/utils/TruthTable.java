@@ -2,6 +2,8 @@ package com.github.raboro.logic.propositional.utils;
 
 import com.github.raboro.logic.propositional.symbols.Symbol;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,13 +29,13 @@ public class TruthTable {
     }
 
     private void buildSpaceRow() {
-        spaceRow = "|---".repeat(Math.max(0, symbol.length)) + "||---|";
+        spaceRow = "|---".repeat(Math.max(0, symbol.length)) + "||---|\n";
     }
 
     private void buildHeader() {
         header = IntStream.range(1, symbol.length + 1)
                 .mapToObj(i -> " " + i + " |")
-                .collect(Collectors.joining("", "|", "| y " + "|"));
+                .collect(Collectors.joining("", "|", "| y " + "|\n"));
     }
 
     private void buildRows() {
@@ -57,12 +59,30 @@ public class TruthTable {
     }
 
     private String createSuffix(String binaryNumber) {
-        return "| " + (symbol.valueOf(binaryNumber) ? "1" : "0") + " |";
+        return "| " + (symbol.valueOf(binaryNumber) ? "1" : "0") + " |\n";
     }
 
     public void print() {
-        System.out.println(header);
-        System.out.println(spaceRow);
-        rows.forEach(System.out::println);
+        write(System.out);
+    }
+
+    public void write(OutputStream os) {
+        try {
+            writeTo(os);
+        } catch (IOException ioe) {
+            System.out.println(ioe.getMessage());
+        }
+    }
+
+    private void writeTo(OutputStream os) throws IOException {
+        os.write(header.getBytes());
+        os.write(spaceRow.getBytes());
+        rows.forEach(r -> {
+            try {
+                os.write(r.getBytes());
+            } catch (IOException ioe) {
+                System.out.println(ioe.getMessage());
+            }
+        });
     }
 }
