@@ -139,7 +139,7 @@ class SymbolTestMapper {
         private void verify() {
             if (valueExpected.length != 8 || symbolString.isBlank() || valueEqualsNeededSymbols.length != 8 ||
                     valueEqualsInvalidBooleanReference.length != 2 || valueEqualsInvalidStringReference.length() != 2) {
-                throw new ValueNotSameSizeException();
+                throw new ValueNotSameSizeException("values have not the required size");
             }
         }
     }
