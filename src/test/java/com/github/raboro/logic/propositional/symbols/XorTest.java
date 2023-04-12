@@ -35,7 +35,15 @@ class XorTest extends SymbolTest {
                 .setValueEqualsNeededBinaryReference()
                 .setValueEqualsNeededBooleanReference()
                 .setValueEqualsInvalidBooleanReference(new boolean[]{true, false})
-                .valueEqualsInvalidStringReference("10")
+                .setValueEqualsInvalidStringReference("10")
+                .setTruthTable("""
+                        | 1 | 2 || y |
+                        |---|---||---|
+                        | 0 | 0 || 0 |
+                        | 0 | 1 || 1 |
+                        | 1 | 0 || 1 |
+                        | 1 | 1 || 0 |
+                        """)
                 .build();
     }
 

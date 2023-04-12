@@ -35,7 +35,15 @@ class OrTest extends SymbolTest {
                 .setValueEqualsNeededBinaryReference()
                 .setValueEqualsNeededBooleanReference()
                 .setValueEqualsInvalidBooleanReference(new boolean[]{false, false})
-                .valueEqualsInvalidStringReference("00")
+                .setValueEqualsInvalidStringReference("00")
+                .setTruthTable("""
+                        | 1 | 2 || y |
+                        |---|---||---|
+                        | 0 | 0 || 0 |
+                        | 0 | 1 || 1 |
+                        | 1 | 0 || 1 |
+                        | 1 | 1 || 1 |
+                        """)
                 .build();
     }
 

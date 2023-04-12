@@ -16,6 +16,7 @@ class SymbolTestMapper {
     private final boolean[][] valueEqualsNeededBooleanReference;
     private final boolean[] valueEqualsInvalidBooleanReference;
     private final String valueEqualsInvalidStringReference;
+    private final String truthTable;
 
     SymbolTestMapper(SymbolTestMapperBuilder builder) {
         this.symbol = builder.symbol;
@@ -26,6 +27,7 @@ class SymbolTestMapper {
         this.valueEqualsNeededBooleanReference = builder.valueEqualsNeededBooleanReference;
         this.valueEqualsInvalidBooleanReference = builder.valueEqualsInvalidBooleanReference;
         this.valueEqualsInvalidStringReference = builder.valueEqualsInvalidStringReference;
+        this.truthTable = builder.truthTable;
     }
 
     public Symbol getSymbol() {
@@ -60,6 +62,10 @@ class SymbolTestMapper {
         return valueEqualsInvalidStringReference;
     }
 
+    public String getTruthTable() {
+        return truthTable;
+    }
+
     public static class SymbolTestMapperBuilder {
 
         private final Symbol symbol;
@@ -70,6 +76,7 @@ class SymbolTestMapper {
         private boolean[][] valueEqualsNeededBooleanReference;
         private boolean[] valueEqualsInvalidBooleanReference;
         private String valueEqualsInvalidStringReference;
+        private String truthTable;
 
         public SymbolTestMapperBuilder(Symbol symbol) {
             this.symbol = symbol;
@@ -114,8 +121,13 @@ class SymbolTestMapper {
             return this;
         }
 
-        public SymbolTestMapperBuilder valueEqualsInvalidStringReference(String reference) {
+        public SymbolTestMapperBuilder setValueEqualsInvalidStringReference(String reference) {
             valueEqualsInvalidStringReference = reference;
+            return this;
+        }
+
+        public SymbolTestMapperBuilder setTruthTable(String truthTable) {
+            this.truthTable = truthTable;
             return this;
         }
 

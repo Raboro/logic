@@ -3,7 +3,11 @@ package com.github.raboro.logic.propositional.symbols;
 import com.github.raboro.logic.propositional.exception.NoBinaryInputException;
 import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesException;
 import com.github.raboro.logic.propositional.exception.ValueNotSameSizeException;
+import com.github.raboro.logic.propositional.utils.TruthTable;
 import org.junit.jupiter.api.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -128,6 +132,16 @@ class SymbolTest {
         if (mapper != null) {
             Symbol symbol = mapper.getSymbol();
             assertEquals(String.format("true %s true", symbol.symbol), symbol.toString());
+        }
+    }
+
+    @Test
+    void testTruthTable() {
+        if (mapper != null) {
+            OutputStream os = new ByteArrayOutputStream();
+            TruthTable truthTable = new TruthTable(mapper.getSymbol());
+            truthTable.write(os);
+            assertEquals(os.toString(), mapper.getTruthTable());
         }
     }
 }
