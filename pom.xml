@@ -1,13 +1,40 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.github.raboro</groupId>
+  <groupId>io.github.raboro</groupId>
   <artifactId>logic</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>logic</name>
+  <description>This is a library for logic. You can use logical symbols like AND, NOR, XNOR and so on in combination
+    with truth tables.
+    Right now only for propositional logic, but in the future also predicate logic.
+  </description>
+  <url>https://github.com/Raboro/logic</url>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://opensource.org/license/mit/</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Marius Wörfel</name>
+      <email>marius.woerfelreal@gmail.com</email>
+      <organization>io.github.raboro</organization>
+      <organizationUrl>https://github.com/Raboro</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git://github.com/Raboro/logic.git</connection>
+    <developerConnection>scm:git:ssh://github.com:Raboro/logic.git</developerConnection>
+    <url>https://github.com/Raboro/logic</url>
+  </scm>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
