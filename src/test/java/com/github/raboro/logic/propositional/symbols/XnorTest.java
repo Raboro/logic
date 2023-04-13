@@ -31,7 +31,7 @@ class XnorTest extends SymbolTest {
         };
         SymbolTestMapper.SymbolTestMapperBuilder builder = new SymbolTestMapper.SymbolTestMapperBuilder(symbol);
         return builder.setValueExpected(new boolean[]{true, false, false, false, false, false, false, true})
-                .setSymbol(symbol.symbol)
+                .setSymbolCharacter(symbol.character)
                 .setValueEqualsNeededSymbols(symbols)
                 .setValueEqualsNeededBinaryReference()
                 .setValueEqualsNeededBooleanReference()

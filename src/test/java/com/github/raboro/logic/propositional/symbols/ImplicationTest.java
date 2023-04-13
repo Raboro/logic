@@ -31,7 +31,7 @@ class ImplicationTest extends SymbolTest {
         };
         SymbolTestMapper.SymbolTestMapperBuilder builder = new SymbolTestMapper.SymbolTestMapperBuilder(symbol);
         return builder.setValueExpected(new boolean[]{false, true, false, true, true, true, false, true})
-                .setSymbol(symbol.symbol)
+                .setSymbolCharacter(symbol.character)
                 .setValueEqualsNeededSymbols(symbols)
                 .setValueEqualsNeededBinaryReference()
                 .setValueEqualsNeededBooleanReference()

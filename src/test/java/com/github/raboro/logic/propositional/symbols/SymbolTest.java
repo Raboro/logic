@@ -30,7 +30,7 @@ class SymbolTest {
     @Test
     void testSymbol() {
         if (mapper != null) {
-            assertEquals(mapper.getSymbolString(), mapper.getSymbol().symbol);
+            assertEquals(mapper.getSymbolCharacter(), mapper.getSymbol().character);
         }
     }
 
@@ -132,7 +132,7 @@ class SymbolTest {
     void testToString() {
         if (mapper != null) {
             Symbol symbol = mapper.getSymbol();
-            assertEquals(String.format("true %s true", symbol.symbol), symbol.toString());
+            assertEquals(String.format("true %s true", symbol.character), symbol.toString());
         }
     }
 

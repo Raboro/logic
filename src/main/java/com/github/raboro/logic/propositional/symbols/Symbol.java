@@ -14,15 +14,15 @@ import java.util.stream.IntStream;
  */
 public abstract class Symbol {
 
-    public final String symbol;
+    public final String character;
     public final int length;
     protected final boolean[] values;
 
-    Symbol(String symbol, boolean... values) {
+    Symbol(String character, boolean... values) {
         if (notEnoughValues(values)) {
             throw new NotEnoughInputValuesException(values.length);
         }
-        this.symbol = symbol;
+        this.character = character;
         length = values.length;
         this.values = values;
     }
@@ -114,7 +114,7 @@ public abstract class Symbol {
     @Override
     public String toString() {
         return IntStream.range(0, values.length)
-                .mapToObj(i -> values[i] + " " + (lastValue(i) ? "" : symbol) + " ")
+                .mapToObj(i -> values[i] + " " + (lastValue(i) ? "" : character) + " ")
                 .collect(Collectors.joining())
                 .strip();
     }

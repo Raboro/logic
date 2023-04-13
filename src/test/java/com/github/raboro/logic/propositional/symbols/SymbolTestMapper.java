@@ -9,7 +9,7 @@ import com.github.raboro.logic.propositional.exception.ValueNotSameSizeException
 class SymbolTestMapper {
 
     private final Symbol symbol;
-    private final String symbolString;
+    private final String symbolCharacter;
     private final boolean[] valueExpected;
     private final Symbol[] valueEqualsNeededSymbols;
     private final String[] valueEqualsNeededBinaryReference;
@@ -20,7 +20,7 @@ class SymbolTestMapper {
 
     SymbolTestMapper(SymbolTestMapperBuilder builder) {
         this.symbol = builder.symbol;
-        this.symbolString = builder.symbolString;
+        this.symbolCharacter = builder.symbolCharacter;
         this.valueExpected = builder.valueExpected;
         this.valueEqualsNeededSymbols = builder.valueEqualsNeededSymbols;
         this.valueEqualsNeededBinaryReference = builder.valueEqualsNeededBinaryReference;
@@ -34,8 +34,8 @@ class SymbolTestMapper {
         return symbol;
     }
 
-    public String getSymbolString() {
-        return symbolString;
+    public String getSymbolCharacter() {
+        return symbolCharacter;
     }
 
     public boolean[] getValueExpected() {
@@ -69,7 +69,7 @@ class SymbolTestMapper {
     public static class SymbolTestMapperBuilder {
 
         private final Symbol symbol;
-        private String symbolString;
+        private String symbolCharacter;
         private boolean[] valueExpected;
         private Symbol[] valueEqualsNeededSymbols;
         private String[] valueEqualsNeededBinaryReference;
@@ -82,8 +82,8 @@ class SymbolTestMapper {
             this.symbol = symbol;
         }
 
-        public SymbolTestMapperBuilder setSymbol(String symbol) {
-            this.symbolString = symbol;
+        public SymbolTestMapperBuilder setSymbolCharacter(String symbolCharacter) {
+            this.symbolCharacter = symbolCharacter;
             return this;
         }
 
@@ -137,7 +137,7 @@ class SymbolTestMapper {
         }
 
         private void verify() {
-            if (valueExpected.length != 8 || symbolString.isBlank() || valueEqualsNeededSymbols.length != 8 ||
+            if (valueExpected.length != 8 || symbolCharacter.isBlank() || valueEqualsNeededSymbols.length != 8 ||
                     valueEqualsInvalidBooleanReference.length != 2 || valueEqualsInvalidStringReference.length() != 2) {
                 throw new ValueNotSameSizeException("values have not the required size");
             }

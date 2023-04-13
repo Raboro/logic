@@ -30,7 +30,7 @@ class OrTest extends SymbolTest {
         };
         SymbolTestMapper.SymbolTestMapperBuilder builder = new SymbolTestMapper.SymbolTestMapperBuilder(symbol);
         return builder.setValueExpected(new boolean[]{false, true, true, true, true, true, true, true})
-                .setSymbol(symbol.symbol)
+                .setSymbolCharacter(symbol.character)
                 .setValueEqualsNeededSymbols(symbols)
                 .setValueEqualsNeededBinaryReference()
                 .setValueEqualsNeededBooleanReference()

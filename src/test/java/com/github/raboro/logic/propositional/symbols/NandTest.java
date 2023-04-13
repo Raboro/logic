@@ -30,7 +30,7 @@ class NandTest extends SymbolTest {
         };
         SymbolTestMapper.SymbolTestMapperBuilder builder = new SymbolTestMapper.SymbolTestMapperBuilder(symbol);
         return builder.setValueExpected(new boolean[]{true, true, true, true, true, true, true, false})
-                .setSymbol(symbol.symbol)
+                .setSymbolCharacter(symbol.character)
                 .setValueEqualsNeededSymbols(symbols)
                 .setValueEqualsNeededBinaryReference()
                 .setValueEqualsNeededBooleanReference()
