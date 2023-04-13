@@ -64,10 +64,12 @@ public class Nand extends Symbol {
         return nand(reference) == value();
     }
 
+    @Override
     public void baseTruthTable() {
         baseTruthTable(2);
     }
 
+    @Override
     public void baseTruthTable(int variableCounter) {
         super.baseTruthTable(construct(super.constructParameters(variableCounter)));
     }

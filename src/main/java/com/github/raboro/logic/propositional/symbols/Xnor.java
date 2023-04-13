@@ -60,10 +60,12 @@ public class Xnor extends Symbol {
         return xnor(reference) == value();
     }
 
+    @Override
     public void baseTruthTable() {
         baseTruthTable(2);
     }
 
+    @Override
     public void baseTruthTable(int variableCounter) {
         super.baseTruthTable(construct(super.constructParameters(variableCounter)));
     }

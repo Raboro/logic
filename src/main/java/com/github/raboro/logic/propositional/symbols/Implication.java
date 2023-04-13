@@ -64,12 +64,14 @@ public class Implication extends Symbol {
         return implication(reference) == value();
     }
 
+    @Override
     public void baseTruthTable() {
         baseTruthTable(2);
     }
 
+    @Override
     public void baseTruthTable(int variableCounter) {
-        super.baseTruthTable(construct(constructParameters(variableCounter)));
+        super.baseTruthTable(construct(super.constructParameters(variableCounter)));
     }
 
     private Symbol construct(boolean... values) {

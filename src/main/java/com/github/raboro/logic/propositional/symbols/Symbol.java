@@ -67,14 +67,17 @@ public abstract class Symbol {
     public abstract boolean valueEquals(String reference);
 
     /**
-     * @param reference
-     * are the input arguments (booleans) for the evaluation of the symbol
-     * <br>
-     * reference needs to have the same size as the given input have
+     * @param reference are the input arguments (booleans) for the evaluation of the symbol
+     *                  <br>
+     *                  reference needs to have the same size as the given input have
      * @return <b>true</b> if result of the given input <b>reference</b> is the same as the already passed input in the constructor of the symbol,
      * else <b>false</b>
      */
     public abstract boolean valueEquals(boolean... reference);
+
+    public abstract void baseTruthTable();
+
+    public abstract void baseTruthTable(int variableCounter);
 
     protected boolean[] constructReference(String reference) {
         validateReference(reference);
