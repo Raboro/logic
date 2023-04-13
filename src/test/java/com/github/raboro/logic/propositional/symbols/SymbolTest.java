@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
+import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -141,7 +142,21 @@ class SymbolTest {
             OutputStream os = new ByteArrayOutputStream();
             TruthTable truthTable = new TruthTable(mapper.getSymbol());
             truthTable.write(os);
-            assertEquals(os.toString(), mapper.getTruthTable());
+            assertEquals(mapper.getTruthTable(), os.toString());
+        }
+    }
+
+    @Test
+    void testBaseTruthTable() {
+        if (mapper != null) {
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            PrintStream ps = new PrintStream(os);
+            PrintStream old = System.out;
+            System.setOut(ps);
+            mapper.getSymbol().baseTruthTable();
+            System.out.flush();
+            System.setOut(old);
+            assertEquals(mapper.getTruthTable(), os.toString());
         }
     }
 }
