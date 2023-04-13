@@ -18,21 +18,21 @@ class TruthTableTest {
 
     @Test
     void testPrintToConsole() {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        PrintStream ps = new PrintStream(baos);
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(os);
         PrintStream old = System.out;
         System.setOut(ps);
         TruthTable truthTable = new TruthTable(new And(true, true));
         truthTable.print();
         System.out.flush();
         System.setOut(old);
-        assertFalse(baos.toString().isBlank());
+        assertFalse(os.toString().isBlank());
     }
 
     @Test
     void testPrintToStream() {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        PrintStream ps = new PrintStream(baos);
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(os);
         PrintStream old = System.out;
         System.setOut(ps);
         TruthTable truthTable = new TruthTable(new And(true, true));
@@ -40,13 +40,13 @@ class TruthTableTest {
         truthTable.print();
         System.out.flush();
         System.setOut(old);
-        assertFalse(baos.toString().isBlank());
+        assertFalse(os.toString().isBlank());
     }
 
     @Test
     void testExceptionWithOutputSteam() {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        PrintStream ps = new PrintStream(baos);
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(os);
         PrintStream old = System.out;
         System.setOut(ps);
         TruthTable truthTable = new TruthTable(new And(true, true));
@@ -59,6 +59,6 @@ class TruthTableTest {
         });
         System.out.flush();
         System.setOut(old);
-        assertFalse(baos.toString().isBlank());
+        assertFalse(os.toString().isBlank());
     }
 }
