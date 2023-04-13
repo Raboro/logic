@@ -77,12 +77,8 @@ public class TruthTable {
     private void writeTo(OutputStream os) throws IOException {
         os.write(header.getBytes());
         os.write(spaceRow.getBytes());
-        rows.forEach(r -> {
-            try {
-                os.write(r.getBytes());
-            } catch (IOException ioe) {
-                System.out.println(ioe.getMessage());
-            }
-        });
+        for (String row : rows) {
+            os.write(row.getBytes());
+        }
     }
 }
