@@ -51,16 +51,13 @@ public class Or extends Symbol {
 
     @Override
     public boolean valueEquals(String reference) {
+        validateReferenceSize(reference);
         return or(constructReference(reference)) == value();
     }
 
     @Override
     public boolean valueEquals(boolean... reference) {
-        if (reference.length != values.length) {
-            throw new ValueNotSameSizeException(
-                    String.format("Your input (size %s has not the same size as required %s",
-                            reference.length, values.length));
-        }
+        validateReferenceSize(reference);
         return or(reference) == value();
     }
 

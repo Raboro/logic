@@ -51,6 +51,11 @@ public class Implication extends Symbol {
 
     @Override
     public boolean valueEquals(String reference) {
+        if (reference.length() != values.length) {
+            throw new ValueNotSameSizeException(
+                    String.format("Your input (size %s has not the same size as required %s",
+                            reference.length(), values.length));
+        }
         return implication(constructReference(reference)) == value();
     }
 

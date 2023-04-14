@@ -101,6 +101,14 @@ class SymbolTest {
     }
 
     @Test
+    void testValueEqualsStringWringLength() {
+        if (mapper != null) {
+            Symbol symbol = mapper.getSymbol();
+            assertThrows(ValueNotSameSizeException.class, () -> symbol.valueEquals("000"));
+        }
+    }
+
+    @Test
     void testExceptionThrownIfInvalidInputNoArguments() {
         if (mapper != null) {
             Symbol symbol = mapper.getSymbol();

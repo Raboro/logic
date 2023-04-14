@@ -2,6 +2,7 @@ package com.github.raboro.logic.propositional.symbols;
 
 import com.github.raboro.logic.propositional.exception.NoBinaryInputException;
 import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesException;
+import com.github.raboro.logic.propositional.exception.ValueNotSameSizeException;
 import com.github.raboro.logic.propositional.utils.TruthTable;
 
 import java.util.Arrays;
@@ -78,6 +79,22 @@ public abstract class Symbol {
     public abstract void baseTruthTable();
 
     public abstract void baseTruthTable(int variableCounter);
+
+    protected void validateReferenceSize(boolean[] reference) {
+        if (reference.length != values.length) {
+            throw new ValueNotSameSizeException(
+                    String.format("Your input (size %s has not the same size as required %s",
+                            reference.length, values.length));
+        }
+    }
+
+    protected void validateReferenceSize(String reference) {
+        if (reference.length() != values.length) {
+            throw new ValueNotSameSizeException(
+                    String.format("Your input (size %s has not the same size as required %s",
+                            reference.length(), values.length));
+        }
+    }
 
     protected boolean[] constructReference(String reference) {
         validateReference(reference);
