@@ -6,6 +6,9 @@ package com.github.raboro.logic.propositional.exception;
  */
 public class ValueNotSameSizeException extends RuntimeException {
 
+    /**
+     * @param message which should be the error message
+     */
     public ValueNotSameSizeException(String message) {
         super(message);
     }

@@ -20,6 +20,9 @@ public class TruthTable {
     private String spaceRow;
     private final List<String> rows;
 
+    /**
+     * @param symbol which gets the truth table generated
+     */
     public TruthTable(Symbol symbol) {
         this.symbol = symbol;
         rows = new ArrayList<>();
@@ -62,10 +65,16 @@ public class TruthTable {
         return "| " + (symbol.valueOf(binaryNumber) ? "1" : "0") + " |\n";
     }
 
+    /**
+     * prints the truth table to the console
+     */
     public void print() {
         write(System.out);
     }
 
+    /**
+     * @param os is the Outputstream, which gets the truth table data
+     */
     public void write(OutputStream os) {
         try {
             writeTo(os);

@@ -15,10 +15,18 @@ import static com.github.raboro.logic.propositional.symbols.Or.or;
  */
 public class Implication extends Symbol {
 
+    /**
+     * @param values boolean inputs
+     */
     public Implication(boolean... values) {
         super("\u27F6", values);
     }
 
+    /**
+     * @param a first boolean input
+     * @param b second boolean input
+     * @return evaluates the result of a and b
+     */
     public static boolean implication(boolean a, boolean b) {
         return or(!a, b);
     }
@@ -26,7 +34,7 @@ public class Implication extends Symbol {
     /**
      * @param values are the input arguments (booleans) for the evaluation with IMPLICATION
      * @return evaluates the result of <b>values</b> with IMPLICATION
-     * @throws NotEnoughInputValuesException if the number of boolean input arguments are < 2
+     * @throws NotEnoughInputValuesException if the number of boolean input arguments are smaller than 2
      */
     public static boolean implication(boolean... values) {
         if (notEnoughValues(values)) {

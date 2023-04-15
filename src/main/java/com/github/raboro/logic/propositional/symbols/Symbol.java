@@ -15,8 +15,19 @@ import java.util.stream.IntStream;
  */
 public abstract class Symbol {
 
+    /**
+     * character which represents the symbol
+     */
     public final String character;
+
+    /**
+     * the length of the input
+     */
     public final int length;
+
+    /**
+     * input values
+     */
     protected final boolean[] values;
 
     Symbol(String character, boolean... values) {
@@ -28,6 +39,10 @@ public abstract class Symbol {
         this.values = values;
     }
 
+    /**
+     * @param values which gets checked for length
+     * @return true if the input is big enough or false
+     */
     protected static boolean notEnoughValues(boolean[] values) {
         return values.length < 2;
     }
@@ -40,7 +55,7 @@ public abstract class Symbol {
     /**
      * @param values are the input arguments (booleans) for the evaluation of the symbol
      * @return evaluates the result of <b>values</b> with the symbol
-     * @throws NotEnoughInputValuesException if the number of boolean input arguments are < 2
+     * @throws NotEnoughInputValuesException if the number of boolean input arguments are smaller than 2
      */
     public abstract boolean valueOf(boolean... values);
 
@@ -51,7 +66,7 @@ public abstract class Symbol {
      *                  <br>
      *                  (false -> 0; true -> 1)
      * @return evaluates the result of <b>reference</b> with the symbol
-     * @throws NotEnoughInputValuesException if the String input length is smaller than < 2
+     * @throws NotEnoughInputValuesException if the String input length is smaller than 2
      * @throws NoBinaryInputException        if the String input contains not only '0' and '1'
      */
     public abstract boolean valueOf(String reference);
@@ -64,7 +79,7 @@ public abstract class Symbol {
      *                  (false -> 0; true -> 1)
      * @return <b>true</b> if result of the given input <b>reference</b> is the same as the already passed input in the constructor of the symbol,
      * else <b>false</b>
-     * @throws NotEnoughInputValuesException if the String input length is smaller than < 2
+     * @throws NotEnoughInputValuesException if the String input length is smaller than 2
      * @throws NoBinaryInputException        if the String input contains not only '1' and '0'
      * @throws ValueNotSameSizeException     if the String input is not same size as the ones given in the constructor of the symbol
      */
@@ -76,7 +91,7 @@ public abstract class Symbol {
      *                  reference needs to have the same size as the given input have
      * @return <b>true</b> if result of the given input <b>reference</b> is the same as the already passed input in the constructor of the symbol,
      * else <b>false</b>
-     * @throws NotEnoughInputValuesException if the number of boolean input arguments are < 2
+     * @throws NotEnoughInputValuesException if the number of boolean input arguments are smaller than 2
      * @throws ValueNotSameSizeException     if boolean input arguments are not same size as the ones given in the constructor of the symbol
      */
     public abstract boolean valueEquals(boolean... reference);
@@ -93,6 +108,9 @@ public abstract class Symbol {
      */
     public abstract void baseTruthTable(int variableCounter);
 
+    /**
+     * @param reference input, which gets validated for the valid size
+     */
     protected void validateReferenceSize(boolean[] reference) {
         if (reference.length != values.length) {
             throw new ValueNotSameSizeException(
@@ -101,6 +119,9 @@ public abstract class Symbol {
         }
     }
 
+    /**
+     * @param reference input, which gets validated for the valid size
+     */
     protected void validateReferenceSize(String reference) {
         if (reference.length() != values.length) {
             throw new ValueNotSameSizeException(
@@ -109,6 +130,10 @@ public abstract class Symbol {
         }
     }
 
+    /**
+     * @param reference in binary gets mapped to boolean values
+     * @return boolean array which is the representation of the reference binary String
+     */
     protected boolean[] constructReference(String reference) {
         validateReference(reference);
         final boolean[] referenceValues = new boolean[reference.length()];
@@ -126,16 +151,27 @@ public abstract class Symbol {
         }
     }
 
+    /**
+     * @param c gets checked for binary char
+     * @return boolean if c is in binary true, else false
+     */
     private boolean notInBinary(char c) {
         return c != '0' && c != '1';
     }
 
+    /**
+     * @param variableCounter number of variables for the truth table
+     * @return variables with true as value for the truth table
+     */
     protected boolean[] constructParameters(int variableCounter) {
         final boolean[] variables = new boolean[variableCounter];
         Arrays.fill(variables, true);
         return variables;
     }
 
+    /**
+     * @param symbol gets the base truth table generated
+     */
     protected void baseTruthTable(Symbol symbol) {
         final TruthTable truthTable = new TruthTable(symbol);
         truthTable.print();

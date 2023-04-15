@@ -15,10 +15,18 @@ import static com.github.raboro.logic.propositional.symbols.And.and;
  */
 public class Nand extends Symbol {
 
+    /**
+     * @param values boolean inputs
+     */
     public Nand(boolean... values) {
         super("\u22BC", values);
     }
 
+    /**
+     * @param a first boolean input
+     * @param b second boolean input
+     * @return evaluates the result of a and b
+     */
     public static boolean nand(boolean a, boolean b) {
         return !(a && b);
     }
@@ -26,7 +34,7 @@ public class Nand extends Symbol {
     /**
      * @param values are the input arguments (booleans) for the evaluation with NAND
      * @return evaluates the result of <b>values</b> with NAND
-     * @throws NotEnoughInputValuesException if the number of boolean input arguments are < 2
+     * @throws NotEnoughInputValuesException if the number of boolean input arguments are smaller than 2
      */
     public static boolean nand(boolean... values) {
         if (notEnoughValues(values)) {

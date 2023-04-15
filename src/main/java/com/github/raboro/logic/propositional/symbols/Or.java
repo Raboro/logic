@@ -12,10 +12,18 @@ import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesExcep
  */
 public class Or extends Symbol {
 
+    /**
+     * @param values boolean inputs
+     */
     public Or(boolean... values) {
         super("\u2228", values);
     }
 
+    /**
+     * @param a first boolean input
+     * @param b second boolean input
+     * @return evaluates the result of a and b
+     */
     public static boolean or(boolean a, boolean b) {
         return a || b;
     }
@@ -23,7 +31,7 @@ public class Or extends Symbol {
     /**
      * @param values are the input arguments (booleans) for the evaluation with OR
      * @return evaluates the result of <b>values</b> with OR
-     * @throws NotEnoughInputValuesException if the number of boolean input arguments are < 2
+     * @throws NotEnoughInputValuesException if the number of boolean input arguments are smaller than 2
      */
     public static boolean or(boolean... values) {
         if (notEnoughValues(values)) {
