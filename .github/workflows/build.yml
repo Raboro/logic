@@ -72,7 +72,10 @@ jobs:
         run: echo ::set-output name=version::$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
       - name: Build with Maven deploy
         if: ${{ !endsWith(steps.project.outputs.version, '-SNAPSHOT') }}
-        run: mvn clean deploy
+        env:
+          GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: mvn clean --settings settings.xml --file pom.xml deploy
       - name: Build with Maven deploy not possible
         if: ${{ endsWith(steps.project.outputs.version, '-SNAPSHOT') }}
         run: echo no deploy, because version contains SNAPSHOT
