@@ -71,7 +71,7 @@ jobs:
         id: project
         run: echo ::set-output name=version::$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
       - name: Build with Maven deploy
-        if: ${{ !endsWith(steps.project.outputs.version, '-SNAPSHOT') }}
+      - if: ${{ !endsWith(steps.project.outputs.version, '-SNAPSHOT') }}
         run: echo steps.project.output.version deploy
-        else:
-          run: echo  steps.project.output.version no deploy
+      - if: false == ${{ !endsWith(steps.project.outputs.version, '-SNAPSHOT') }}
+        run: echo  steps.project.output.version no deploy
