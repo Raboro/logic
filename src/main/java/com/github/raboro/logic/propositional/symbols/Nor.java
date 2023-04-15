@@ -5,7 +5,12 @@ import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesExcep
 import static com.github.raboro.logic.propositional.symbols.Or.or;
 
 /**
+ * Represents the logical NOR, which is the negation of the logical OR.
+ * It´s true, if all input arguments are false, else it´s false.
+ *
  * @author Raboro
+ * @see com.github.raboro.logic.propositional.symbols.Symbol
+ * @see com.github.raboro.logic.propositional.symbols.Or
  * @since 1.0-SNAPSHOT
  */
 public class Nor extends Symbol {

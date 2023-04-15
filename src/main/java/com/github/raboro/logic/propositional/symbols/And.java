@@ -3,7 +3,10 @@ package com.github.raboro.logic.propositional.symbols;
 import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesException;
 
 /**
+ * Represents the logical AND. It's true if all input arguments are ture, else it´s false.
+ *
  * @author Raboro
+ * @see com.github.raboro.logic.propositional.symbols.Symbol
  * @since 1.0-SNAPSHOT
  */
 public class And extends Symbol {

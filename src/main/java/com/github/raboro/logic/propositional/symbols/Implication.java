@@ -6,7 +6,11 @@ import com.github.raboro.logic.propositional.exception.ValueNotSameSizeException
 import static com.github.raboro.logic.propositional.symbols.Or.or;
 
 /**
+ * Represents the logical IMPLICATION. It´s only false if it´s first true but than false. Else it´s true.
+ * Because from something true can not conclude something false.
+ *
  * @author Raboro
+ * @see com.github.raboro.logic.propositional.symbols.Symbol
  * @since 1.0-SNAPSHOT
  */
 public class Implication extends Symbol {

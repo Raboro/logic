@@ -7,7 +7,13 @@ import java.util.stream.IntStream;
 import static com.github.raboro.logic.propositional.symbols.Xor.xor;
 
 /**
+ * Represents the negation of the logical XOR.
+ * It´s true, if the input arguments are all the same, else it´s false.
+ *
  * @author Raboro
+ * @see com.github.raboro.logic.propositional.symbols.Symbol
+ * @see com.github.raboro.logic.propositional.symbols.Or
+ * @see com.github.raboro.logic.propositional.symbols.Xor
  * @since 1.0-SNAPSHOT
  */
 public class Xnor extends Symbol {

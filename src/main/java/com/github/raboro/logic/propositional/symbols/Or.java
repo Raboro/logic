@@ -3,7 +3,11 @@ package com.github.raboro.logic.propositional.symbols;
 import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesException;
 
 /**
+ * Represents the logical OR, it´s true, if min. one input argument is true,
+ * else it´s false, if all input arguments are false.
+ *
  * @author Raboro
+ * @see com.github.raboro.logic.propositional.symbols.Symbol
  * @since 1.0-SNAPSHOT
  */
 public class Or extends Symbol {

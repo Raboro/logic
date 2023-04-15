@@ -3,7 +3,12 @@ package com.github.raboro.logic.propositional.symbols;
 import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesException;
 
 /**
+ * Represents the logical XOR, it´s true if one input arguments is true, else it´s false.
+ * It´s the exclusive logical OR. Because the logical OR is also true, if multiple input arguments are true.
+ *
  * @author Raboro
+ * @see com.github.raboro.logic.propositional.symbols.Symbol
+ * @see com.github.raboro.logic.propositional.symbols.Or
  * @since 1.0-SNAPSHOT
  */
 public class Xor extends Symbol {

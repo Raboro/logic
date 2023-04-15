@@ -5,7 +5,12 @@ import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesExcep
 import static com.github.raboro.logic.propositional.symbols.And.and;
 
 /**
+ * Represents the logical NAND. It´s the negation of the logical AND, which means it´s true,
+ * if not all input arguments are true, because than it´s false.
+ *
  * @author Raboro
+ * @see com.github.raboro.logic.propositional.symbols.Symbol
+ * @see com.github.raboro.logic.propositional.symbols.And
  * @since 1.0-SNAPSHOT
  */
 public class Nand extends Symbol {
