@@ -81,8 +81,16 @@ public abstract class Symbol {
      */
     public abstract boolean valueEquals(boolean... reference);
 
+    /**
+     * prints the truth table of the symbol to the console with two variables = true
+     * => this leads to the base truth table of the symbol
+     */
     public abstract void baseTruthTable();
 
+    /**
+     * @param variableCounter the number of variables for the truth table.
+     *                        Same as baseTruthTable() but with a specific number of variables
+     */
     public abstract void baseTruthTable(int variableCounter);
 
     protected void validateReferenceSize(boolean[] reference) {
