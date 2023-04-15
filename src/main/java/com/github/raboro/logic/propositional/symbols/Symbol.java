@@ -38,57 +38,46 @@ public abstract class Symbol {
     public abstract boolean value();
 
     /**
-     * @param values
-     * are the input arguments (booleans) for the evaluation of the symbol
+     * @param values are the input arguments (booleans) for the evaluation of the symbol
      * @return evaluates the result of <b>values</b> with the symbol
-     * @throws NotEnoughInputValuesException
-     * if the number of boolean input arguments are < 2
+     * @throws NotEnoughInputValuesException if the number of boolean input arguments are < 2
      */
     public abstract boolean valueOf(boolean... values);
 
     /**
-     * @param reference
-     * is the input argument for the evaluation of the symbol. The String contains a binary representation of the input
-     * <br>
-     * (e.g. 011 -> false, true, true)
-     * <br>
-     * (false -> 0; true -> 1)
+     * @param reference is the input argument for the evaluation of the symbol. The String contains a binary representation of the input
+     *                  <br>
+     *                  (e.g. 011 -> false, true, true)
+     *                  <br>
+     *                  (false -> 0; true -> 1)
      * @return evaluates the result of <b>reference</b> with the symbol
-     * @throws NotEnoughInputValuesException
-     * if the String input length is smaller than < 2
-     * @throws NoBinaryInputException
-     * if the String input contains not only '1' and '0'
+     * @throws NotEnoughInputValuesException if the String input length is smaller than < 2
+     * @throws NoBinaryInputException        if the String input contains not only '0' and '1'
      */
     public abstract boolean valueOf(String reference);
 
     /**
-     * @param reference
-     * is the input argument for the evaluation of the symbol. The String contains a binary representation of the input
-     * <br>
-     * (e.g. 011 -> false, true, true)
-     * <br>
-     * (false -> 0; true -> 1)
+     * @param reference is the input argument for the evaluation of the symbol. The String contains a binary representation of the input
+     *                  <br>
+     *                  (e.g. 011 -> false, true, true)
+     *                  <br>
+     *                  (false -> 0; true -> 1)
      * @return <b>true</b> if result of the given input <b>reference</b> is the same as the already passed input in the constructor of the symbol,
      * else <b>false</b>
-     * @throws NotEnoughInputValuesException
-     * if the String input length is smaller than < 2
-     * @throws NoBinaryInputException
-     * if the String input contains not only '1' and '0'
-     * @throws ValueNotSameSizeException
-     * if String input is not same size as the ones given in the constructor of the symbol
+     * @throws NotEnoughInputValuesException if the String input length is smaller than < 2
+     * @throws NoBinaryInputException        if the String input contains not only '1' and '0'
+     * @throws ValueNotSameSizeException     if the String input is not same size as the ones given in the constructor of the symbol
      */
     public abstract boolean valueEquals(String reference);
 
     /**
      * @param reference are the input arguments (booleans) for the evaluation of the symbol
-     * <br>
-     * reference needs to have the same size as the given input have
+     *                  <br>
+     *                  reference needs to have the same size as the given input have
      * @return <b>true</b> if result of the given input <b>reference</b> is the same as the already passed input in the constructor of the symbol,
      * else <b>false</b>
-     * @throws NotEnoughInputValuesException
-     * if the number of boolean input arguments are < 2
-     * @throws ValueNotSameSizeException
-     * if boolean input arguments are not same size as the ones given in the constructor of the symbol
+     * @throws NotEnoughInputValuesException if the number of boolean input arguments are < 2
+     * @throws ValueNotSameSizeException     if boolean input arguments are not same size as the ones given in the constructor of the symbol
      */
     public abstract boolean valueEquals(boolean... reference);
 
