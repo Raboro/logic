@@ -99,7 +99,7 @@ public abstract class Symbol {
     protected void validateReferenceSize(boolean[] reference) {
         if (reference.length != values.length) {
             throw new ValueNotSameSizeException(
-                    String.format("Your input (size %s has not the same size as required %s",
+                    String.format("Your input (size %s) has not the same size as required %s",
                             reference.length, values.length));
         }
     }
@@ -107,7 +107,7 @@ public abstract class Symbol {
     protected void validateReferenceSize(String reference) {
         if (reference.length() != values.length) {
             throw new ValueNotSameSizeException(
-                    String.format("Your input (size %s has not the same size as required %s",
+                    String.format("Your input (size %s) has not the same size as required %s",
                             reference.length(), values.length));
         }
     }
