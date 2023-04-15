@@ -8,27 +8,27 @@ You can use this library to make your logical code more OOP like.
 For example instead of writing somethings like this:
 
 ````java
-private boolean evaluate(){
-        return(this.isValid&&this.isType&&this.isWord&&this.isSentence)||
-        (this.isValid&&this.name.length()>10);
-        }
+private boolean evaluate() {
+    return(this.isValid && this.isType&&this.isWord && this.isSentence) ||
+        (this.isValid && this.name.length() > 1 0);
+}
 ````
 
 You can do this:
 
 ````java
-private boolean evaluate(){
-        return or(and(this.isValid,this.isType,this.isWord,this.isSentence),
-        and(this.isValid,this.name.length()>10);
-        }
+private boolean evaluate() {
+    return or(and(this.isValid, this.isType, this.isWord, this.isSentence),
+        and(this.isValid, this.name.length() > 10);
+}
 ````
 
 In general you can get more out of this logical symbols:
 
 ````java
-private boolean evaluate(String binaryInput){
-        return new Implication(true,true).valueEquals(binaryInput);
-        }
+private boolean evaluate(String binaryInput) {
+        return new Implication(true, true).valueEquals(binaryInput);
+}
 ````
 
 ---
