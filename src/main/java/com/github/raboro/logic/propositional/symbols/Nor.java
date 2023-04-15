@@ -18,6 +18,11 @@ public class Nor extends Symbol {
         return !or(a, b);
     }
 
+    /**
+     * @param values are the input arguments (booleans) for the evaluation with NOR
+     * @return evaluates the result of <b>values</b> with NOR
+     * @throws NotEnoughInputValuesException if the number of boolean input arguments are < 2
+     */
     public static boolean nor(boolean... values) {
         if (notEnoughValues(values)) {
             throw new NotEnoughInputValuesException(values.length);

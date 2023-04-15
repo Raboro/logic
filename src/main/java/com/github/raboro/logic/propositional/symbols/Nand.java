@@ -18,6 +18,11 @@ public class Nand extends Symbol {
         return !(a && b);
     }
 
+    /**
+     * @param values are the input arguments (booleans) for the evaluation with NAND
+     * @return evaluates the result of <b>values</b> with NAND
+     * @throws NotEnoughInputValuesException if the number of boolean input arguments are < 2
+     */
     public static boolean nand(boolean... values) {
         if (notEnoughValues(values)) {
             throw new NotEnoughInputValuesException(values.length);

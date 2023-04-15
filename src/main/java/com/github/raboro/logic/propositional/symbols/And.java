@@ -16,6 +16,11 @@ public class And extends Symbol {
         return a && b;
     }
 
+    /**
+     * @param values are the input arguments (booleans) for the evaluation with AND
+     * @return evaluates the result of <b>values</b> with AND
+     * @throws NotEnoughInputValuesException if the number of boolean input arguments are < 2
+     */
     public static boolean and(boolean... values) {
         if (notEnoughValues(values)) {
             throw new NotEnoughInputValuesException(values.length);
