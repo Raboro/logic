@@ -1,7 +1,6 @@
 package com.github.raboro.logic.propositional.symbols;
 
 import com.github.raboro.logic.propositional.exception.NotEnoughInputValuesException;
-import com.github.raboro.logic.propositional.exception.ValueNotSameSizeException;
 
 import static com.github.raboro.logic.propositional.symbols.Or.or;
 
