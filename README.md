@@ -49,7 +49,7 @@ private boolean evaluate(String binaryInput){
 - You can see the truth table of the symbols
 
 ---
-Future plans
+### Future plans
 
 Not only implement propositional logic but also predicate logic.
 Then you will create your own predicates and define your own rules to evaluate logical problems.
