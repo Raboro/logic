@@ -1,6 +1,19 @@
 # Logic
 
-This is a library to work with logic. Right know only propositional logic is
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Raboro_logic&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Raboro_logic)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Raboro_logic&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Raboro_logic)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=Raboro_logic&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=Raboro_logic)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Raboro_logic&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Raboro_logic)
+
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Raboro_logic&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Raboro_logic)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Raboro_logic&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Raboro_logic)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Raboro_logic&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Raboro_logic)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Raboro_logic&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Raboro_logic)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Raboro_logic&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=Raboro_logic)
+
+---
+
+This is a library to work with logic. Right now only propositional logic is
 implemented, but more will come.
 You can use this library to make your logical code more OOP like and readable.
 For example instead of writing something's like this:
