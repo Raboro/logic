@@ -19,7 +19,7 @@ public class Nor extends Symbol {
      * @param values boolean inputs
      */
     public Nor(boolean... values) {
-        super("↓", values);
+        super("\u22BD", values);
     }
 
     /**
